@@ -1,3 +1,3 @@
-# Smart Contrat Tests
+# Smart Contract Tests
 
 This repository contains multiple small projects for testing smart contract interoperability
