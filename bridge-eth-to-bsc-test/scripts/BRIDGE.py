@@ -2,28 +2,34 @@ import json
 from web3 import Web3
 import asyncio
 
+
+#connect to web3 providers
+
+# FILL IN WITH CORRECT PORT 
+web3_eth = Web3(Web3.HTTPProvider('http://127.0.0.1:8585'))      
+web3_bsc = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
+
+
+# FILL IN WITH CORRECT ID 
 ETH_NETWORK_ID = '1678146187539'
 BSC_NETWORK_ID = '56'
 
-BSC_ADMIN_PRIVATE_KEY = '0x' # replace with your BSC admin private key
+BSC_ADMIN_PRIVATE_KEY = '0x' # replace with your BSC admin private key CAN BE FOUND UNDER 'PRIVATE KEYS' in Ganache CLI
 
 
 #load BridgeEth.json and BridgeBsc.json ABI
 
-with open('/Users/vishnukchitti/dev/truffle-bsc-side/build/contracts/BridgeEth.json') as f:
+with open('/build/contracts/BridgeEth.json') as f:
     data = json.loads(f.read())
     bridge_eth_abi = data['abi']
     bridge_eth_address =  data['networks'][ETH_NETWORK_ID]["address"]
     
-with open('/Users/vishnukchitti/dev/truffle-bsc-side/build/contracts/BridgeBsc.json') as f:
+with open('/build/contracts/BridgeBsc.json') as f:
     data = json.loads(f.read())
     bridge_bsc_abi = data['abi']
     bridge_bsc_address = data['networks'][BSC_NETWORK_ID]["address"]
 
-#connect to web3 providers
 
-web3_eth = Web3(Web3.HTTPProvider('http://127.0.0.1:8585'))
-web3_bsc = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
 
 #set admin private key and account address for BSC
 
